@@ -1,17 +1,14 @@
 package main
 
 import (
+	"github.com/gorilla/mux"
 	"log"
 	"net/http"
-
-	"github.com/gorilla/mux"
-	"todo-list/db"
 	"todo-list/handlers"
 )
 
 func main() {
 	//Подключение к БД
-	db.ConnectDB()
 
 	r := mux.NewRouter()
 
