@@ -3,13 +3,12 @@ package handlers
 import (
 	"database/sql"
 	"encoding/json"
+	"github.com/gorilla/mux"
 	"log"
 	"net/http"
 	"strconv"
 	"time"
 	"todo-list/db"
-
-	"github.com/gorilla/mux"
 	"todo-list/models"
 )
 

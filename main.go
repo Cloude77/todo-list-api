@@ -7,6 +7,8 @@ import (
 	"todo-list/handlers"
 )
 
+var dbReady = make(chan struct{})
+
 func main() {
 	//Подключение к БД
 
