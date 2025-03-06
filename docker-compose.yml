@@ -4,7 +4,8 @@ services:
     ports:
       - "8080:8080"
     depends_on:
-      - db
+      db:
+        condition: service_healthy
     environment:
       DB_HOST: db
       DB_PORT: 5432
@@ -18,12 +19,16 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: ""
       POSTGRES_DB: todo_db
-      POSTGRES_HOST_AUTH_METHOD: trust
+      POSTGRES_HOST_AUTH_METHOD: trust  # Не удаляйте, если используете пустой пароль
     ports:
       - "5432:5432"
     volumes:
       - todo-db-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
 volumes:
   todo-db-data:
-
