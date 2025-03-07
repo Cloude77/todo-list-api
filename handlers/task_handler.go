@@ -12,9 +12,6 @@ import (
 	"todo-list/models"
 )
 
-//var tasks = make(map[int]*models.Task) // Хранилище задач
-//var idCounter = 1                      // Счетчик ID
-
 // CreateTask создает новую задачу
 func CreateTask(w http.ResponseWriter, r *http.Request) {
 	var newTask models.Task
